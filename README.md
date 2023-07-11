@@ -241,6 +241,56 @@ Consider the assembly instructions and their effects. What can you infer about t
 
 
 
+**5. Consider a program containing this poor-quality code, procedure vulnerable has the following disassembled form on a x86-64 machine: [15 points]**
+
+```c
+void vulnerable(char t){
+    char password[6];
+    char name[4];
+    gets(name);
+    password[0]='H';
+    password[1]='e';
+    password[2]='l';
+    password[3]='l';
+    password[4]='o';
+    password[5]=t;
+    printf("You cannot know my password %s!\n", name);
+}
+```
+
+Here is the disassembled form:
+
+```assembly
+vulnerable: # @vulnerable
+    push %rbp
+    mov %rsp, %rbp
+    sub $0x10, %rsp
+    movb %dil, -1(%rbp) # dil>81sb of rdi
+    lea -0xb(%rbp), %rdi
+    call gets
+    movb $72, -7(%rbp) # H
+    movb $101, -6(%rbp) # e
+    movb $108, -5(%rbp) # l
+    movb $108, -4(%rbp) # l
+    movb $111, -3(%rbp) # o
+    movb -1(%rbp), %al
+    movb %al, -2(%rbp)
+    lea -0xb(%rbp), %rsi
+    mov $0x400104, %rdi # "You cannot ..
+    call printf
+    add $0x10, %rsp
+    pop %rbp
+    retq
+```
+
+Given the above C code and its corresponding assembly code, consider the following:
+
+- What are the potential security vulnerabilities in this code?
+- How could an attacker potentially exploit these vulnerabilities?
+- What changes could be made to the code to mitigate these vulnerabilities?
+
+Remember to consider the specific characteristics of the C code and its corresponding assembly code in your answers.
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
