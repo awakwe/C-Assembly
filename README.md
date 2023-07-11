@@ -291,6 +291,32 @@ Given the above C code and its corresponding assembly code, consider the followi
 
 Remember to consider the specific characteristics of the C code and its corresponding assembly code in your answers.
 
+
+
+
+**For the following questions, recall that:**
+
+- `gets` is the standard C library routine.
+- x86-64 machines are little-endian.
+- C strings are null-terminated (i.e., terminated by a character with value `0x00`).
+
+**Consider the case where procedure vulnerable is called with argument `t` equal to '1', and we type "Luis" in response to `gets`.**
+
+a. **Which elements of array `password` were overwritten when `gets` is called? [3 points]**
+- [ ] None
+- [ ] Only `password[0]`
+- [ ] `password[0]` and `password[1]`
+
+b. **Which of the following stack values were corrupted? [3 points]**
+- [ ] `password[0]`, `password[1]`, and `password[2]`
+- [ ] Arguments
+- [ ] Arguments and Saved registers
+- [ ] Saved registers
+- [ ] None of the listed options
+
+Consider the behavior of the `gets` function and the layout of the stack. Which elements of the `password` array and which stack values would be affected by the `gets` call?
+
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
