@@ -40,7 +40,6 @@ comment:  This document is a simple LiaScript course example.
      - [ ] Function name
      - [ ] Return address
 
-Sure, here's a markdown version of the question without revealing the answer:
 
 **Malloc [20 points]**
 
