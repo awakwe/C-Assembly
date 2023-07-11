@@ -75,6 +75,23 @@ Given these characteristics, consider the following:
 Remember to consider the specific characteristics of the allocator in your answers.
 
 
+**Given a heap representation, only the metadata is displayed. For example, the following heap contains an allocated block of size 16, followed by a free block of size 32. The top row contains memory addresses, and the bottom row contains the values stored at those memory addresses.**
+
+```
+Address | 0xa000 | 0xa008 | 0xa020 | 0xa028
+Value   |   16   | 0x0000 |  -32   | 0xa000
+```
+
+**a. (4 points) Assuming an initially empty heap, and given the current state of the heap represented below, which of the malloc sequence was executed?**
+
+- [ ] `p0 = malloc(32); p1 = malloc(32); free(p0);`
+- [ ] `p0 = malloc(16); p1 = malloc(32); free(p0); free(p1);`
+- [ ] `p0 = malloc(64);`
+- [ ] `p0 = malloc(32); p1 = malloc(16); free(p0);`
+
+Consider the state of the heap and the effects of the `malloc` and `free` functions. Which sequence of operations would result in the current heap state?
+
+
 
 ## Quizzes
 
