@@ -398,6 +398,84 @@ b. **With respect to the Linker, which of the following is a local symbol? [3 po
 Consider the scope of the variables and functions in the code. Which are global symbols and which are local symbols with respect to the linker?
 
 
+
+c. **With respect to the Linker, which of the following is NOT registered as a symbol? [3 points]**
+- [ ] `v`
+- [ ] `what_is_this`
+- [ ] `x`
+- [ ] `main`
+
+Consider the scope of the variables and functions in the code. Which of these would not be registered as a symbol by the linker?
+
+
+
+**8. For each question, read the code - assume all code is given! [9 points]**
+
+a. **What type of error will the code produce? [3 points]**
+
+```c
+int main() {
+    int a[4] = {0};
+    for (int i=0; i<10000; i++) {
+        a[i] = i;
+    }
+    return 0;
+}
+```
+- [ ] Runtime error
+- [ ] Linking error
+- [ ] Compilation error
+- [ ] Loading error
+
+b. **What type of error will the code produce? [3 points]**
+
+```c
+int main() {
+    int a[4] = {0};
+    for (int i=0; i<4; i++) {
+        a[i] = add(a[1], i);
+    }
+    return 0;
+}
+```
+- [ ] Runtime error
+- [ ] Linking error
+- [ ] Compilation error
+- [ ] Loading error
+
+c. **What type of error will the code produce? [3 points]**
+
+```c
+int add(int a, int b);
+
+int main() {
+    int a[4] = {0};
+    for (int i=0; i<4; i++) {
+        a[i] = add(a[1], i);
+    }
+    return 0;
+}
+```
+- [ ] Runtime error
+- [ ] Linking error
+- [ ] Compilation error
+- [ ] Loading error
+
+Consider the code provided and the types of errors that can occur during different stages of the program's lifecycle. What type of error would each piece of code produce?
+
+
+
+**x86-64 calling conventions:**
+
+- Argument registers: `%rdi`, `%rsi`, `%rdx`, `%rcx`, `%r8`, `%r9`
+- Preserved registers: `%rbp`, `%rbx`, `%r12`, `%r13`, `%r14`, `%r15`
+- Return value: `%rax`, `%rdx`
+- Name: `%rax`, `%eax`, `%ax`, `%ah`, `%al`
+
+The `mov` instruction is used to move data between registers, from memory to registers, or from registers to memory. It's a fundamental instruction in x86 assembly language.
+
+Remember that in the x86-64 calling convention, the first six integer or pointer arguments are passed in registers `%rdi`, `%rsi`, `%rdx`, `%rcx`, `%r8`, and `%r9`. Additional arguments are passed on the stack. The return value (if it is an integer or pointer) is passed back to the caller in the `%rax` register. The `%rdx` register is used for certain types of function returns (like returning 128-bit values or using the `div` instruction). The registers `%rbp`, `%rbx`, `%r12`, `%r13`, `%r14`, and `%r15` are callee-saved, meaning that if a function modifies these registers, it must restore their original values before returning.
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
