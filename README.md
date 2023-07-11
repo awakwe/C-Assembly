@@ -317,6 +317,15 @@ b. **Which of the following stack values were corrupted? [3 points]**
 Consider the behavior of the `gets` function and the layout of the stack. Which elements of the `password` array and which stack values would be affected by the `gets` call?
 
 
+
+
+c. **What (exactly) was printed by the function when `printf` was executed? [3 points]**
+
+Consider the state of the `name` array and the format string passed to `printf`. What would be the exact output of the `printf` call? Please fill in the blank:
+
+Answer: ________
+
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
