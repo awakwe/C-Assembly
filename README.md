@@ -93,6 +93,20 @@ Consider the state of the heap and the effects of the `malloc` and `free` functi
 
 
 
+**b. (4 points) Assuming the heap starts as drawn in the previous question, and given the final state of the heap represented below, which of the malloc sequence was executed?**
+
+```
+Address | 0xa000 | 0xa008 | 0xa030 | 0xa038
+Value   |   32   | 0x0000 |  -16   | 0xa000
+```
+
+- [ ] `p0 = malloc(32); p1 = malloc(16); free(p0);`
+- [ ] `p0 = malloc(32); p1 = malloc(16); free(p1);`
+- [ ] `p0 = malloc(32);`
+- [ ] `p0 = malloc(16);`
+
+Consider the state of the heap and the effects of the `malloc` and `free` functions. Which sequence of operations would result in the current heap state?
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
