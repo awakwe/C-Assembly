@@ -16,7 +16,51 @@ comment:  This document is a simple LiaScript course example.
 # C and x86-64 Assembly 
 # Exam Study Guide
 
-1. **How many times does function `execv` return if there are no errors?**
+
+Topics outline:
+
+1. **Question 1: Function `execv` Return Times**
+   - Understanding the behavior of the `execv` function in case of errors.
+
+2. **Question 2: Difference Between `%rbx` and `%ebx` Registers**
+   - Understanding the difference between high order and low order bits in registers.
+
+3. **Question 3: Stack Frame Contents**
+   - Understanding the contents of a Stack Frame: saved registers, local variables, function name, return address.
+
+4. **Question 4: Memory Allocation Algorithms**
+   - Understanding the advantages and disadvantages of next-fit and best-fit memory allocation algorithms.
+
+5. **Question 5: Allocator Implementation Characteristics**
+   - Understanding the behavior of a specific allocator implementation.
+
+6. **Question 6: Heap Representation and Malloc Sequence**
+   - Understanding the state of the heap and the sequence of malloc and free operations.
+
+7. **Question 7: Assembly and Reverse-Engineering**
+   - Understanding the function arguments, local variables, register multiplication, local variable integer type, and loop count in an assembly dump.
+
+8. **Question 8: Reverse Engineering x86-64 to C**
+   - Understanding the mapping of variables to registers and filling in the blanks in the C code.
+
+9. **Question 9: Vulnerable Procedure and Code Injection Attacks**
+   - Understanding the potential security vulnerabilities in a given code and how to prevent code injection attacks.
+
+10. **Question 10: Compiling, Linking, Loading Stages**
+   - Understanding at which stage certain actions happen: determining the location of functions, placing shared libraries in memory, determining the offset of a stack variable.
+
+11. **Question 11: Symbol Registration with the Linker**
+   - Understanding the global and local symbols with respect to the linker.
+
+12. **Question 12: Error Types in Code**
+   - Understanding the type of error produced by certain code snippets: runtime error, linking error, compilation error, loading error.
+
+13. **Question 13: x86-64 Calling Conventions**
+   - Understanding the argument registers, preserved registers, return value, and the `mov` instruction.
+
+
+
+## 1. **How many times does function `execv` return if there are no errors?**
    - The `execv` function is like a one-way ticket for a process. It is used to replace the current process image with a new process image. It does not return to the calling process unless there is an error. Therefore, think about how many times it would return if there are no errors.
    - Options:
      - [ ] 0 times
@@ -24,7 +68,7 @@ comment:  This document is a simple LiaScript course example.
      - [ ] 1 time
      - [ ] 3 times
 
-2. **What is the difference between the `%rbx` and the `%ebx` register on an x86-64 machine?**
+## 2. **What is the difference between the `%rbx` and the `%ebx` register on an x86-64 machine?**
    - The `%rbx` and `%ebx` are like containers (registers) in the x86-64 architecture. The `%rbx` is a larger container (64-bit register), while the `%ebx` is a smaller container that fits inside the larger one (32-bit register). The `%ebx` register is part of the `%rbx` register. Consider which part of the `%rbx` register the `%ebx` refers to.
    - Options:
      - [ ] `%ebx` refers to only the high order 32 bits of the `%rbx` register
@@ -32,7 +76,7 @@ comment:  This document is a simple LiaScript course example.
      - [ ] They are totally different registers
      - [ ] Nothing, they are the same register
 
-3. **What do you NOT expect to find in a Stack Frame?**
+## 3. **What do you NOT expect to find in a Stack Frame?**
    - A stack frame is like a suitcase for a subroutine, containing all the information it needs. This includes saved registers (like clothes), local (automatic) variables (like toiletries), and the return address (like a return ticket). However, one of the options listed is not typically found in a stack frame. Think about what each option represents and which one would not be part of a subroutine's suitcase.
    - Options:
      - [ ] Saved registers
@@ -43,7 +87,7 @@ comment:  This document is a simple LiaScript course example.
 
 **Malloc [20 points]**
 
-1. **Given a system with a small amount of memory, which of the following memory allocation algorithms would you use: next-fit or best-fit? Explain the advantages and disadvantages of each of them. [4 points]**
+## 1. **Given a system with a small amount of memory, which of the following memory allocation algorithms would you use: next-fit or best-fit? Explain the advantages and disadvantages of each of them. [4 points]**
 
    - **Next-Fit**: The next-fit algorithm starts from the location of the last allocated block and searches for the next block that is large enough to satisfy the request. If it doesn't find a suitable block, it loops back to the beginning of the heap and continues the search.
      - *Advantages*: Can you think of situations where this method would be beneficial?
@@ -56,7 +100,7 @@ comment:  This document is a simple LiaScript course example.
    Considering a system with a small amount of memory, which algorithm would be more suitable and why? Remember to consider factors such as the typical size of allocation requests and the importance of allocation speed versus memory utilization.
 
 
-**2. Consider an allocator implementation with the following characteristics: [16 points]**
+## **2. Consider an allocator implementation with the following characteristics: [16 points]**
 
 - The first-fit free algorithm is used to allocate data.
 - All blocks have a header with a size and a pointer to the previous block. The header is 16B (2*8bytes) in size.
@@ -75,7 +119,7 @@ Given these characteristics, consider the following:
 Remember to consider the specific characteristics of the allocator in your answers.
 
 
-**Given a heap representation, only the metadata is displayed. For example, the following heap contains an allocated block of size 16, followed by a free block of size 32. The top row contains memory addresses, and the bottom row contains the values stored at those memory addresses.**
+## **Given a heap representation, only the metadata is displayed. For example, the following heap contains an allocated block of size 16, followed by a free block of size 32. The top row contains memory addresses, and the bottom row contains the values stored at those memory addresses.**
 
 ```
 Address | 0xa000 | 0xa008 | 0xa020 | 0xa028
@@ -135,7 +179,7 @@ Consider the state of the heap and the effects of the `free` function. Which add
 
 
 
-**3. Assembly and Reverse-Engineering [9 points]**
+## **3. Assembly and Reverse-Engineering [9 points]**
 
 Consider the following assembly dump:
 
@@ -191,7 +235,7 @@ Consider the assembly instructions and their effects. What can you infer about t
 
 
 
-**4. Reverse Engineering x86-64 to C [16 points]**
+## **4. Reverse Engineering x86-64 to C [16 points]**
 
 Consider the following x86-64 assembly and fill-in the blanks in the C code. Use the following variable-to-register mapping:
 
@@ -241,7 +285,7 @@ Consider the assembly instructions and their effects. What can you infer about t
 
 
 
-**5. Consider a program containing this poor-quality code, procedure vulnerable has the following disassembled form on a x86-64 machine: [15 points]**
+## **5. Consider a program containing this poor-quality code, procedure vulnerable has the following disassembled form on a x86-64 machine: [15 points]**
 
 ```c
 void vulnerable(char t){
@@ -294,7 +338,7 @@ Remember to consider the specific characteristics of the C code and its correspo
 
 
 
-**For the following questions, recall that:**
+## **For the following questions, recall that:**
 
 - `gets` is the standard C library routine.
 - x86-64 machines are little-endian.
@@ -315,8 +359,6 @@ b. **Which of the following stack values were corrupted? [3 points]**
 - [ ] None of the listed options
 
 Consider the behavior of the `gets` function and the layout of the stack. Which elements of the `password` array and which stack values would be affected by the `gets` call?
-
-
 
 
 c. **What (exactly) was printed by the function when `printf` was executed? [3 points]**
@@ -345,7 +387,7 @@ Consider the definition of a buffer overflow. Which of these scenarios would res
 
 
 
-**6. Compiling, linking, loading. For each question, determine at which stage the action happens. [6 points]**
+## **6. Compiling, linking, loading. For each question, determine at which stage the action happens. [6 points]**
 
 a. **Determine the location of functions in other object files? [2 points]**
 - [ ] Compiling
@@ -365,7 +407,7 @@ c. **Determine the offset of a stack variable? [2 points]**
 - [ ] Linking
 - [ ] Assembling
 
-**7. Answer the questions for the code below. [9 points]**
+## **7. Answer the questions for the code below. [9 points]**
 
 ```c
 static int x = 0, y = 5;
@@ -409,7 +451,7 @@ Consider the scope of the variables and functions in the code. Which of these wo
 
 
 
-**8. For each question, read the code - assume all code is given! [9 points]**
+## **8. For each question, read the code - assume all code is given! [9 points]**
 
 a. **What type of error will the code produce? [3 points]**
 
@@ -465,7 +507,7 @@ Consider the code provided and the types of errors that can occur during differe
 
 
 
-**x86-64 calling conventions:**
+## **x86-64 calling conventions:**
 
 - Argument registers: `%rdi`, `%rsi`, `%rdx`, `%rcx`, `%r8`, `%r9`
 - Preserved registers: `%rbp`, `%rbx`, `%r12`, `%r13`, `%r14`, `%r15`
