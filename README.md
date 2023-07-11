@@ -326,6 +326,78 @@ Consider the state of the `name` array and the format string passed to `printf`.
 Answer: ________
 
 
+
+d. **What would NOT help with preventing code injection attacks? [3 points]**
+- [ ] Add a canary to the stack
+- [ ] Make the stack larger than it needs to be
+- [ ] Make the stack not executable
+- [ ] Randomize the memory address of the stack
+
+Consider the various techniques used to prevent code injection attacks. Which of these would not be effective?
+
+e. **Which of the following cases represents a buffer overflow? [3 points]**
+- [ ] Writing a string of length 5 to an array of chars of size 6
+- [ ] Reading 20B from an array of size 10B
+- [ ] Writing 5B of code into a stack buffer with 10B of capacity
+- [ ] Executing code in the stack
+
+Consider the definition of a buffer overflow. Which of these scenarios would result in a buffer overflow?
+
+
+
+**6. Compiling, linking, loading. For each question, determine at which stage the action happens. [6 points]**
+
+a. **Determine the location of functions in other object files? [2 points]**
+- [ ] Compiling
+- [ ] Linking
+- [ ] Loading
+- [ ] Assembling
+
+b. **Place shared libraries in memory? [2 points]**
+- [ ] Compiling
+- [ ] Loading
+- [ ] Linking
+- [ ] Assembling
+
+c. **Determine the offset of a stack variable? [2 points]**
+- [ ] Compiling
+- [ ] Loading
+- [ ] Linking
+- [ ] Assembling
+
+**7. Answer the questions for the code below. [9 points]**
+
+```c
+static int x = 0, y = 5;
+
+int what_is_this(void) {
+    x = x + y;
+    y = y + 1;
+    return y;
+}
+
+int main(void) {
+    int v = what_is_this();
+    printf("%d\n", v);
+    return v;
+}
+```
+
+a. **With respect to the Linker, which of the following is a global symbol? [3 points]**
+- [ ] `what_is_this`
+- [ ] `y`
+- [ ] `x`
+- [ ] `v`
+
+b. **With respect to the Linker, which of the following is a local symbol? [3 points]**
+- [ ] `v`
+- [ ] `what_is_this`
+- [ ] `x`
+- [ ] `main`
+
+Consider the scope of the variables and functions in the code. Which are global symbols and which are local symbols with respect to the linker?
+
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
