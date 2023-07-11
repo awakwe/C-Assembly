@@ -14,6 +14,43 @@ comment:  This document is a simple LiaScript course example.
 
 
 # C and x86-64 Assembly 
+
+
+
+# Project 3 - Assembly Project: Bombs and exploits!
+
+## Introduction
+
+In this project, you will gain basic familiarity with x86-64 assembly instructions and how they are used to implement typical C language features, including comparison, loops, etc. The project aims to provide a basic understanding of how a computer navigates through a program’s execution at a fundamental level. You will be hacking assembly programs.
+
+## Part 1: Defusing Traps
+
+In this part of the project, you will be working with a binary program called `bomb`. The `bomb` has several traps, and your task is to figure out the correct input needed to defuse each trap.
+
+## Part 2: Submitting Your Answers
+
+Once you solve each of the traps, you should place the codes in a text file named `bomb.txt`. Write the answer to each trap on its own line. This file will serve as a record of the solutions you've found for defusing the traps.
+
+## Part 3: Exploiting Memory
+
+In this part of the project, you will play the role of a malicious user and hack a provided program. This will test your understanding of memory management and how it can be exploited.
+
+## Submission
+
+To receive credits for the project, you need to upload the following files to Gradescope:
+
+- **Bomb defusing (3+4+5+6+7 points)**
+  - `bomb` (your executable!)
+  - `bomb.txt` (the answers to the traps)
+
+- **Exploiting memory (25 points)**
+  - `exploit1.txt` (5 points)
+  - `exploit2.txt` (10 points)
+  - `exploit3.txt` (10 points)
+
+Please ensure you follow the instructions provided in the project materials carefully. Good luck with your project!
+
+
 # Exam Study Guide
 
 
