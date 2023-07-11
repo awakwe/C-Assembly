@@ -191,6 +191,56 @@ Consider the assembly instructions and their effects. What can you infer about t
 
 
 
+**4. Reverse Engineering x86-64 to C [16 points]**
+
+Consider the following x86-64 assembly and fill-in the blanks in the C code. Use the following variable-to-register mapping:
+
+- `n` <==> `rdi`
+- `result` <==> `eax`
+- `i` <==> `rsi`
+- `x` <==> `edx`
+- `y` <==> `rcx`
+
+You may only use the symbolic variables such as `i`, `x`, and `result` in your C expressions - do not use register names.
+
+```assembly
+loop:
+    movl $10, %ecx
+    movl $0, %eax
+    movl $0, %edx
+    jmp .L2
+.L3:
+    leaq (%rax, %rax, 4), %rsi
+    movq %rcx, %rax
+    leaq (%rcx, %rsi), %rcx
+    addq $1, %rdx
+.L2:
+    leaq (%rdi, %rdi), %rsi
+    cmpq %rdx, %rsi
+    jg .L3
+    ret
+```
+
+Fill in the blanks in the following C code to match the assembly code:
+
+```c
+long loop(long n) {
+    long i = ___;
+    long result = ___;
+    long x = ___;
+    while (___) {
+        long y = ___;
+        result = ___;
+        i++;
+    }
+    return ___;
+}
+```
+
+Consider the assembly instructions and their effects. What can you infer about the function `loop` from these instructions?
+
+
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
