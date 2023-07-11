@@ -107,6 +107,90 @@ Value   |   32   | 0x0000 |  -16   | 0xa000
 
 Consider the state of the heap and the effects of the `malloc` and `free` functions. Which sequence of operations would result in the current heap state?
 
+
+**c. (4 points) Assuming the heap starts as drawn above (b), if the following malloc executes, what is the value stored in p1? `p1 = malloc(16);`**
+
+- [ ] `0xa018`
+- [ ] `0xa020`
+- [ ] `0xa028`
+- [ ] `0xa030`
+- [ ] `0xa038`
+- [ ] `0xa040`
+- [ ] `0xa048`
+
+Consider the state of the heap and the effects of the `malloc` function. Where would a block of size 16 be allocated?
+
+**d. (4 points) Assuming the heap starts as drawn above (b), which value can fill the blank to successfully free the first block? `free(____);`**
+
+- [ ] `0xa000`
+- [ ] `0xa008`
+- [ ] `0xa010`
+- [ ] `0xa018`
+- [ ] `0xa020`
+- [ ] `0xa028`
+- [ ] `0xa030`
+- [ ] `0xa038`
+
+Consider the state of the heap and the effects of the `free` function. Which address corresponds to the first block that can be freed?
+
+
+
+**3. Assembly and Reverse-Engineering [9 points]**
+
+Consider the following assembly dump:
+
+```
+0000000000001139 <bloop>:
+1139: 55
+113a: 48 89 e5
+113d: 48 83 ec 10
+1141: 48 89 7d f8
+1145: 48 83 7d f8 70
+114c: 7d 07
+1153: 48 05 dd 2e 00 00
+1159: 48 89 45 f0
+115d: eb b5
+1162: b8 00 00 00 00
+1167: e8 c0 fe ff ff
+116c: 90
+116d: c9
+116e: c3
+```
+
+a. **How many function arguments are defined in the above function bloop? [2 points]**
+- [ ] 0
+- [ ] 1
+- [ ] 2
+- [ ] 3
+
+b. **How many local variables (not arguments) are declared in the above function bloop? [2 points]**
+- [ ] 0
+- [ ] 1
+- [ ] 2
+- [ ] 3
+
+c. **Which of the following multiplies the value within the rax register by 9? [2 points]**
+- [ ] `lea (,rax,9), rax`
+- [ ] `lea (rax,rax,8), rax`
+- [ ] `lea (rax,rax,9), rax`
+- [ ] `lea 9(rax), rax`
+
+d. **If I saw `mov rax, -0x8(%rbp)`, and given char is 1B, short 2B, int 4B, and long 8B, I would say that this local variable is what integer type? [2 points]**
+- [ ] int
+- [ ] long
+- [ ] char
+- [ ] short
+
+e. **How many loops does the function above have? [1 point]**
+- [ ] 0
+- [ ] 1
+- [ ] 2
+- [ ] 3
+
+Consider the assembly instructions and their effects. What can you infer about the function `bloop` from these instructions?
+
+
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
