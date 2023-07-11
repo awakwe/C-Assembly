@@ -15,7 +15,31 @@ comment:  This document is a simple LiaScript course example.
 
 # C and x86-64 Assembly 
 
+# Lab 4 - Assembly Lab:
 
+1. **Part A - Investigating the Code**
+   - This part involves reading x86-64 assembly code. You will be given a few functions and you will need to understand how they are translated into x86-64 assembly. This will give you a chance to recognize different common patterns in programs and understand the impact of adding arguments, local variables, and changing variables on the emitted assembly.
+
+2. **Go with the Flow**
+   - In this part, you will be working with a binary program called `bomb`. The task is to figure out the correct input needed to defuse the bomb.
+
+3. **Submitting Your Answers**
+   - Once you solve each of the traps, you should place the codes in a text file named `bomb.txt`. Write the answer to each trap on its own line. This file will serve as a record of the solutions you've found for defusing the traps.
+
+4. **Exploiting Memory**
+   - In this part of the lab, you will play the role of a malicious user and hack a provided program. This will test your understanding of memory management and how it can be exploited.
+
+5. **Submission**
+   - To receive credits for the lab, you need to upload the following files to Gradescope:
+     - Bomb defusing
+       - `bomb` (your executable!)
+       - `bomb.txt` (the answers to the traps)
+     - Exploiting memory
+       - `exploit1.txt`
+       - `exploit2.txt`
+       - `exploit3.txt`
+
+Please ensure you follow the instructions provided in the lab materials carefully. Good luck with your lab!
 
 # Project 3 - Assembly Project: Bombs and exploits!
 
