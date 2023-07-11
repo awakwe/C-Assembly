@@ -55,6 +55,27 @@ comment:  This document is a simple LiaScript course example.
 
    Considering a system with a small amount of memory, which algorithm would be more suitable and why? Remember to consider factors such as the typical size of allocation requests and the importance of allocation speed versus memory utilization.
 
+
+**2. Consider an allocator implementation with the following characteristics: [16 points]**
+
+- The first-fit free algorithm is used to allocate data.
+- All blocks have a header with a size and a pointer to the previous block. The header is 16B (2*8bytes) in size.
+- Positive sizes indicate the block is allocated, and negative sizes indicate it is free.
+- All freed blocks are immediately coalesced if possible.
+- When a block is split, the lower (first) part of the block becomes the allocated part and the upper (second) part becomes the new free block.
+- If the heap doesn't have enough space to hold the data, it grows by the minimum amount needed to fit the data. Always successfully.
+
+Given these characteristics, consider the following:
+
+- How would the allocator handle different allocation and deallocation requests?
+- What would be the impact on memory fragmentation?
+- How would the allocator behave in situations where the heap is nearly full?
+- What are the potential advantages and disadvantages of this allocator design?
+
+Remember to consider the specific characteristics of the allocator in your answers.
+
+
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
