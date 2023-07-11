@@ -579,6 +579,23 @@ The `mov` instruction is used to move data between registers, from memory to reg
 
 Remember that in the x86-64 calling convention, the first six integer or pointer arguments are passed in registers `%rdi`, `%rsi`, `%rdx`, `%rcx`, `%r8`, and `%r9`. Additional arguments are passed on the stack. The return value (if it is an integer or pointer) is passed back to the caller in the `%rax` register. The `%rdx` register is used for certain types of function returns (like returning 128-bit values or using the `div` instruction). The registers `%rbp`, `%rbx`, `%r12`, `%r13`, `%r14`, and `%r15` are callee-saved, meaning that if a function modifies these registers, it must restore their original values before returning.
 
+
+
+# Resources
+
+Here are some useful resources to help you study and understand the concepts better:
+
+- [CS0449 Quiz 1 Study Guide](https://quizlet.com/771836493/cs0449-quiz1-study-guide-flash-cards/?i=2dpmw2&x=1jqt)
+- [CS0449 Exam 1 Flash Cards](https://quizlet.com/737773455/cs0449-exam-1-flash-cards/?i=2dpmw2&x=1jqt)
+- [100+ Computer Science Concepts Explained](https://youtu.be/-uleG_Vecis)
+- [C in 100 Seconds](https://youtu.be/U3aXWizDbQ4)
+- [Assembly Language in 100 Seconds](https://youtu.be/4gwYkEK0gOk)
+
+Feel free to explore these resources at your own pace. They provide a wealth of information that can help you grasp the concepts more effectively.
+
+
+
+
 ## Quizzes
 
 Throughout the module, there will be quizzes to test your knowledge on the topics we have covered. These quizzes will help you assess your understanding and identify areas where you may need to review.
